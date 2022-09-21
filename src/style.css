@@ -92,13 +92,13 @@
 }
 
 .Weather .units {
-  color: rgb(33, 33, 33) !important;
-  font-size: 20px !important;
-  line-height: 36px !important;
-  font-weight: normal !important;
-  position: relative !important;
-  line-height: 1 !important;
-  top: -34px !important;
+  color: rgb(33, 33, 33);
+  font-size: 20px;
+  line-height: 36px;
+  font-weight: normal;
+  position: relative;
+  line-height: 1;
+  top: -34px;
 }
 
 .Weather footer {
@@ -152,4 +152,8 @@
 .WeatherInfo .temperature-container {
   margin-top: 30px;
   margin-bottom: 40px;
+}
+
+a {
+  color: rgb(33, 33, 33);
 }
