@@ -1,5 +1,7 @@
 .Weather {
   font-family: "Cerebri-Sans", Helvetica, Arial, sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
   background: white;
   border-radius: 16px;
   box-shadow: 0px 30px 50px rgba(65, 50, 100, 0.08);
