@@ -30,7 +30,9 @@ function displayTemperature(response) {
   let timeAndDateElement = document.querySelector("#timeAndDate");
   let iconElement = document.querySelector("#icon");
 
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -55,7 +57,28 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-search("Chiang Mai");
-
 let form = document.querySelector("form");
 form.addEventListener("submit", handleSubmit);
+
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+function displayCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", displayCelsius);
+
+let celsiusTemperature = null;
+
+search("Chiang Mai");
