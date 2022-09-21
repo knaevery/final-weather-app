@@ -7,11 +7,6 @@
   color: rgb(135, 135, 135);
 }
 
-.Weather .logo {
-  max-width: 150px;
-  display: block;
-}
-
 .Weather form {
   margin-top: 40px;
   border-bottom: 1px solid #f9f7fe;
