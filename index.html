@@ -32,6 +32,7 @@
                             placeholder="Enter a city..."
                             class="form-control search-input"
                             id="city-input"
+                            autocomplete="off"
                           />
                         </div>
                         <div class="col-3 p-0">
@@ -49,14 +50,16 @@
                           <h1 class="city" id="city"></h1>
                           <ul>
                             <li>
-                              <div>Last updated:</div>
-                              <span id="timeAndDate">Tuesday 12:20</span>,
-                              <span class="description" id="description"></span>
+                              <div class="description" id="description"></div>
                             </li>
                             <li>
                               Humidity: <strong id="humidity"></strong
                               ><strong>%</strong>, Wind:
                               <strong id="wind"></strong><strong>km/h</strong>
+                            </li>
+                            <li>
+                              <span>Last updated:</span>
+                              <span id="timeAndDate">Tuesday 12:20</span>
                             </li>
                           </ul>
                         </div>

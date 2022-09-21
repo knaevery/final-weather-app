@@ -52,10 +52,10 @@ function search(cityName) {
 function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#city-input");
-  console.log(cityInputElement.value);
+  search(cityInputElement.value);
 }
 
-search("Beijing");
+search("Chiang Mai");
 
 let form = document.querySelector("form");
 form.addEventListener("submit", handleSubmit);
