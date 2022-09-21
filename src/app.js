@@ -22,7 +22,6 @@ function formatDate(timestamp) {
 }
 
 function displayTemperature(response) {
-  console.log(response.data);
   let descriptionElement = document.querySelector("#description");
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -44,8 +43,19 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", `${response.data.weather[0].description}`);
 }
 
-let apiKey = "223a4421e9dbb0fc1bd3e8fae6ad0b9e";
-let cityName = "sydney";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+function search(cityName) {
+  let apiKey = "223a4421e9dbb0fc1bd3e8fae6ad0b9e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
 
-axios.get(apiUrl).then(displayTemperature);
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  console.log(cityInputElement.value);
+}
+
+search("Beijing");
+
+let form = document.querySelector("form");
+form.addEventListener("submit", handleSubmit);
