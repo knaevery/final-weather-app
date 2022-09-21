@@ -12,6 +12,7 @@
       integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
 
   <body>
@@ -62,7 +63,11 @@
                             <canvas width="52" height="52"> </canvas>
                             <div>
                               <span class="temperature">21</span>
-                              <span class="unit">°C</span>
+                              <span class="units">
+                                <span class="celsius">°C</span>
+                                |
+                                <span class="fahrenheit">°F</span>
+                              </span>
                             </div>
                           </div>
                         </div>
