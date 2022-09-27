@@ -1,126 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather</title>
-    <link href="src/style.css" rel="stylesheet" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous"
-    />
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  </head>
 
-  <body>
-    <html>
-      <div class="container">
-        <body>
-          <body cz-shortcut-listen="true">
-            <div id="root">
-              <div class="App">
-                <div class="container">
-                  <div class="Weather">
-                    <form>
-                      <div class="row">
-                        <div class="col-9">
-                          <input
-                            type="search"
-                            placeholder="Enter a city..."
-                            class="form-control search-input"
-                            id="city-input"
-                            autocomplete="off"
-                          />
-                        </div>
-                        <div class="col-3 p-0">
-                          <input
-                            type="submit"
-                            class="btn btn-primary w-100"
-                            value="Search"
-                          />
-                        </div>
-                      </div>
-                    </form>
-                    <div class="WeatherInfo">
-                      <div class="row">
-                        <div class="col-6">
-                          <h1 class="city" id="city"></h1>
-                          <ul>
-                            <li>
-                              <div class="description" id="description"></div>
-                            </li>
-                            <li>
-                              Humidity: <strong id="humidity"></strong
-                              ><strong>%</strong>, Wind:
-                              <strong id="wind"></strong><strong>km/h</strong>
-                            </li>
-                            <li>
-                              <span>Last updated:</span>
-                              <span id="timeAndDate">Tuesday 12:20</span>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="col-6">
-                          <div
-                            class="temperature-container d-flex justify-content-end"
-                          >
-                            <canvas width="52" height="52"> </canvas>
-                            <span>
-                              <img
-                                src=""
-                                alt="Clear"
-                                id="icon"
-                                class="float-left"
-                              />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather</title>
+  <link href="src/style.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <html>
+  <div class="container">
+
+    <body>
+
+      <body cz-shortcut-listen="true">
+        <div id="root">
+          <div class="App">
+            <div class="container">
+              <div class="Weather">
+                <form>
+                  <div class="row">
+                    <div class="col-9">
+                      <input type="search" placeholder="Enter a city..." class="form-control search-input"
+                        id="city-input" autocomplete="off" />
+                    </div>
+                    <div class="col-3 p-0">
+                      <input type="submit" class="btn btn-primary w-100" value="Search" />
+                    </div>
+                  </div>
+                </form>
+                <div class="WeatherInfo">
+                  <div class="row">
+                    <div class="col-6">
+                      <h1 class="city" id="city"></h1>
+                      <ul>
+                        <li>
+                          <div class="description" id="description"></div>
+                        </li>
+                        <li>
+                          Humidity: <strong id="humidity"></strong><strong>%</strong>, Wind:
+                          <strong id="wind"></strong><strong>km/h</strong>
+                        </li>
+                        <li>
+                          <span>Last updated:</span>
+                          <span id="timeAndDate">Tuesday 12:20</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-6">
+                      <div class="temperature-container d-flex justify-content-end">
+                        <canvas width="52" height="52"> </canvas>
+                        <span>
+                          <img src="" alt="Clear" id="icon" class="float-left" />
+                        </span>
+                        <div>
+                          <span class="temperature" id="temperature"></span>
+                          <span class="units" id="units">
+                            <span class="active" id="celsius">
+                              <a href="">°C</a>
                             </span>
-                            <div>
-                              <span class="temperature" id="temperature"></span>
-                              <span class="units" id="units">
-                                <span class="active" id="celsius">
-                                  <a href="">°C</a>
-                                </span>
-                                |
-                                <span class="fahrenheit" id="fahrenheit">
-                                  <a href="">°F</a>
-                                </span>
-                              </span>
-                            </div>
-                          </div>
+                            |
+                            <span class="fahrenheit" id="fahrenheit">
+                              <a href="">°F</a>
+                            </span>
+                          </span>
                         </div>
                       </div>
                     </div>
-
-                    <div class="WeatherForecast row">
-                      <div class="col-2">
-                        <div class="WeatherForecastPreview">
-                          <div class="forecast-time">Tue</div>
-                          <canvas width="38" height="38"></canvas>
-                          <div class="forecast-temperature">
-                            <span class="forecast-temperature-max">30°</span>
-                            <span class="forecast-temperature-min">21°</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <small>
-                      <a
-                        href="https://github.com/knaevery/final-weather-app"
-                        target="_blank"
-                        >Open source code by Nina Fernando-Bowen</a
-                      >
-                    </small>
                   </div>
                 </div>
+
+                <div class="WeatherForecast row">
+
+                  <div class="forecast" id="forecast"></div>
+
+                </div>
+
+                <small>
+                  <a href="https://github.com/knaevery/final-weather-app" target="_blank">Open source code by Nina
+                    Fernando-Bowen</a>
+                </small>
               </div>
+
+
             </div>
-          </body>
-        </body>
-      </div>
-      <script src="src/app.js"></script>
-    </html>
-  </body>
+          </div>
+        </div>
+      </body>
+    </body>
+  </div>
+  <script src="src/app.js"></script>
+
+  </html>
+</body>
+
 </html>

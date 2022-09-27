@@ -140,9 +140,10 @@
   opacity: 0.6;
 }
 
-.Weather .WeatherForecast canvas {
+.Weather .WeatherForecast {
   display: block;
   margin: 20px auto;
+  max-width: 800px;
 }
 
 .WeatherInfo {

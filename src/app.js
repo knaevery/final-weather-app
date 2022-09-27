@@ -1,3 +1,34 @@
+// Forecast script
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row ">`;
+  let days = ["Thurs", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+                      <div class="col-3">
+                          <div class="forecast-time">${day}</div>
+                         <img
+                        src="http://openweathermap.org/img/wn/50d@2x.png"
+                        alt=""
+                          width="42"
+                          />
+                          <div class="forecast-temperature">
+                            <span class="forecast-temperature-max">30°</span>
+                            <span class="forecast-temperature-min">21°</span>
+                            </div>
+                          </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+// Current weather script
+
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
@@ -82,3 +113,4 @@ celsiusLink.addEventListener("click", displayCelsius);
 let celsiusTemperature = null;
 
 search("Chiang Mai");
+displayForecast();
