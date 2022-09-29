@@ -96,7 +96,7 @@
   font-size: 20px;
   line-height: 36px;
   font-weight: normal;
-  position: relative;
+  position: sticky;
   line-height: 1;
   top: -34px;
 }
